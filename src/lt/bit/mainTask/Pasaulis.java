@@ -1,7 +1,6 @@
 package lt.bit.mainTask;
 
 import java.util.ArrayList;
-import java.util.Comparator;
 import java.util.List;
 import java.util.Random;
 import java.util.stream.Collectors;
@@ -40,12 +39,9 @@ class Pasaulis {
 
 //        int amziuSuma = zmones.stream()     //skaiciuoja amziu suma
 //                .filter(zmogus -> zmogus.getAmzius() >= age)
-//                .filter(zmogus ->zmogus.getVardas().startsWith("L"))     //atfiltruoja zmones pagal amziu ir pagal pirma vardo raide
+//                .filter(zmogus -> zmogus.getVardas().startsWith("L"))     //atfiltruoja zmones pagal amziu ir pagal pirma vardo raide
 //                .map(Zmogus::getAmzius)
-//                .reduce(0, (a, b) -> a+b);
-
-//                .sorted(Comparator.comparing(Zmogus::getAmzius).reversed())
-//                .collect(Collectors.toList());
+//                .reduce(0, (a, b) -> a + b);
 //        System.out.println(amziuSuma);
 
         zmones.removeAll(atrinktiZmones); //nukillinami žmonės.
@@ -56,9 +52,9 @@ class Pasaulis {
         generateListOfPeople(count, 1);
     }
 
-    void aging() {
+    void aging() {          //sendinami žmonės
         zmones.forEach(Zmogus::aging);
-    } //sendinami žmonės
+    }
 
     void bombing() {            //nukilina 30% viso listo žmonių
         int peopleToKillCount = getPeopleToKillCount();
@@ -87,17 +83,14 @@ class Pasaulis {
                 .filter(zmogus -> zmogus.getAmzius() >= 50)
                 .collect(Collectors.toList());
         int peopleToKillCount = getPeopleToKillCount();     //trečdalis viso listo žmonių
-        List<Zmogus>zmogTrec = new ArrayList<>();           //sukuriamas listas, kuriame yra talpinamas tas trečdalis žmonių
+        List<Zmogus> zmogTrec = new ArrayList<>();           //sukuriamas listas, kuriame yra talpinamas tas trečdalis žmonių
         int adjustedCount = zmoguses.size() < peopleToKillCount
                 ? zmoguses.size()
                 : peopleToKillCount;
-        for(int i = 0; i < adjustedCount; i++){
+        for (int i = 0; i < adjustedCount; i++) {
             zmogTrec.add(zmoguses.get(i));
         }
         zmones.removeAll(zmogTrec);
-
-
-
     }
 
     List<Zmogus> getZmones() {
@@ -137,7 +130,6 @@ class Pasaulis {
         return (int) (parentsCount * 0.1);
     }
 }
-
 
 
 //static klases laukai

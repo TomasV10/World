@@ -20,6 +20,7 @@ class Zmogus {
     }
 
     private static int count;
+
     public static int getCount() {
         return count;
     }
@@ -28,11 +29,12 @@ class Zmogus {
     private int id;
 
 
-    Zmogus(){
+    Zmogus() {
         count++;
         id = nextId.incrementAndGet();
     }
-    Zmogus (String vardas, int amzius, Gender gender){
+
+    Zmogus(String vardas, int amzius, Gender gender) {
         this();
         this.vardas = vardas;
         this.amzius = amzius;
@@ -41,7 +43,7 @@ class Zmogus {
 
     }
 
-    public void aging(){
+    public void aging() {
         amzius++;
     }
 

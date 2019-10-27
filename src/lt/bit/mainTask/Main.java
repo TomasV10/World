@@ -4,7 +4,7 @@ public class Main {
 
     public static void main(String[] args) {
         Pasaulis pasaulis = new Pasaulis();
-        for (int i = 0; i < 50; i++){
+        for (int i = 0; i < 50; i++) {
             pasaulis.generateListOfPeople(100, 100);
             pasaulis.aging();
             pasaulis.removePeopleOverAge(75);
